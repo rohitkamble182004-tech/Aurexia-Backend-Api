@@ -4,11 +4,15 @@ using Fashion.Api.Infrastructure.Configurations;
 using Fashion.Api.Infrastructure.Data;
 using Fashion.Api.Infrastructure.Services;
 using Fashion.Api.Middlewares;
+using Fashion.Api.Services;
+
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
+
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -39,15 +43,15 @@ namespace Fashion.Api
             builder.Services.AddHttpClient();
 
             // =========================
-            // CORS
+            // CORS (PRODUCTION READY)
             // =========================
 
             builder.Services.AddCors(options =>
             {
-                options.AddPolicy("NextJs", policy =>
+                options.AddPolicy("AllowAll", policy =>
                 {
                     policy
-                        .WithOrigins("http://localhost:3000")
+                        .AllowAnyOrigin()
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });
@@ -57,62 +61,22 @@ namespace Fashion.Api
             // SWAGGER
             // =========================
 
-            builder.Services.AddSwaggerGen(options =>
-            {
-                options.SwaggerDoc("v1", new()
-                {
-                    Title = "Fashion API",
-                    Version = "v1"
-                });
-
-                options.AddSecurityDefinition("Bearer",
-                    new Microsoft.OpenApi.Models.OpenApiSecurityScheme
-                    {
-                        Name = "Authorization",
-                        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
-                        Scheme = "Bearer",
-                        BearerFormat = "JWT",
-                        In = Microsoft.OpenApi.Models.ParameterLocation.Header
-                    });
-
-                options.AddSecurityRequirement(
-                    new Microsoft.OpenApi.Models.OpenApiSecurityRequirement
-                    {
-                        {
-                            new Microsoft.OpenApi.Models.OpenApiSecurityScheme
-                            {
-                                Reference = new Microsoft.OpenApi.Models.OpenApiReference
-                                {
-                                    Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme,
-                                    Id = "Bearer"
-                                }
-                            },
-                            Array.Empty<string>()
-                        }
-                    }
-                );
-            });
+            builder.Services.AddSwaggerGen();
 
             // =========================
-            // 🔥 FIREBASE (SAFE)
+            // 🔥 FIREBASE (ENV BASED)
             // =========================
 
-            if (builder.Environment.IsDevelopment())
+            var firebaseConfig = Environment.GetEnvironmentVariable("FIREBASE_CONFIG");
+
+            if (!string.IsNullOrWhiteSpace(firebaseConfig))
             {
                 if (FirebaseApp.DefaultInstance == null)
                 {
-                    var firebasePath = Path.Combine(
-                        builder.Environment.ContentRootPath,
-                        "firebase-service-account.json"
-                    );
-
-                    if (File.Exists(firebasePath))
+                    FirebaseApp.Create(new AppOptions()
                     {
-                        FirebaseApp.Create(new AppOptions()
-                        {
-                            Credential = GoogleCredential.FromFile(firebasePath)
-                        });
-                    }
+                        Credential = GoogleCredential.FromJson(firebaseConfig)
+                    });
                 }
             }
 
@@ -124,7 +88,7 @@ namespace Fashion.Api
 
             builder.Services.AddDbContext<AppDbContext>(options =>
             {
-                if (!string.IsNullOrEmpty(dbUrl))
+                if (!string.IsNullOrWhiteSpace(dbUrl))
                 {
                     options.UseNpgsql(dbUrl + "?sslmode=require");
                 }
@@ -143,12 +107,15 @@ namespace Fashion.Api
             builder.Services.Configure<JwtSettings>(
                 builder.Configuration.GetSection("Jwt")
             );
+
             builder.Services.Configure<StripeSettings>(
                 builder.Configuration.GetSection("Stripe")
             );
+
             builder.Services.Configure<RazorpaySettings>(
                 builder.Configuration.GetSection("Razorpay")
             );
+
             builder.Services.Configure<CloudinarySettings>(
                 builder.Configuration.GetSection("Cloudinary")
             );
@@ -174,6 +141,8 @@ namespace Fashion.Api
 
             var jwt = builder.Configuration.GetSection("Jwt");
 
+            var jwtKey = jwt["Key"] ?? throw new Exception("JWT Key is missing");
+
             builder.Services
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -189,7 +158,7 @@ namespace Fashion.Api
                         ValidAudience = jwt["Audience"],
 
                         IssuerSigningKey = new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes(jwt["Key"]!)
+                            Encoding.UTF8.GetBytes(jwtKey)
                         ),
 
                         RoleClaimType = ClaimTypes.Role,
@@ -206,23 +175,37 @@ namespace Fashion.Api
             var app = builder.Build();
 
             // =========================
+            // 🔥 AUTO DB MIGRATION
+            // =========================
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                db.Database.Migrate();
+            }
+
+            // =========================
             // MIDDLEWARE
             // =========================
 
             app.UseMiddleware<ExceptionMiddleware>();
 
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+            app.UseSwagger();
+            app.UseSwaggerUI();
+
+            // =========================
+            // 🔥 RENDER PORT FIX
+            // =========================
+
+            var port = Environment.GetEnvironmentVariable("PORT") ?? "10000";
+            app.Urls.Add($"http://0.0.0.0:{port}");
 
             app.UseRouting();
             app.UseOutputCache();
 
             app.UseHttpsRedirection();
 
-            app.UseCors("NextJs");
+            app.UseCors("AllowAll");
 
             app.UseAuthentication();
             app.UseAuthorization();

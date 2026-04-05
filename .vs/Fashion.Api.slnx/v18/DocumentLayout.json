@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\infrastructure\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:infrastructure\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
@@ -27,10 +31,6 @@
       "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:dtos\\products\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\infrastructure\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:infrastructure\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -50,11 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Dockerfile",
               "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Dockerfile",
               "RelativeDocumentMoniker": "Dockerfile",
@@ -67,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ProductVariantDto.cs",
               "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Products\\ProductVariantDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Products\\ProductVariantDto.cs",
@@ -79,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ProductResponseDto.cs",
               "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Products\\ProductResponseDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Products\\ProductResponseDto.cs",
@@ -91,7 +91,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ProductsController.cs",
               "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Controllers\\ProductsController.cs",
               "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
@@ -99,12 +99,11 @@
               "RelativeToolTip": "Controllers\\ProductsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-22T07:08:00.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-22T07:08:00.274Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ProductService.cs",
               "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Infrastructure\\Services\\ProductService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\ProductService.cs",
@@ -116,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ProductCreateDto.cs",
               "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Products\\ProductCreateDto.cs",
               "RelativeDocumentMoniker": "DTOs\\Products\\ProductCreateDto.cs",
@@ -140,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "OrderService.cs",
               "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Infrastructure\\Services\\OrderService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\OrderService.cs",
@@ -148,7 +147,8 @@
               "RelativeToolTip": "Infrastructure\\Services\\OrderService.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAAABcAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-23T07:24:35.856Z"
+              "WhenOpened": "2026-02-23T07:24:35.856Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
