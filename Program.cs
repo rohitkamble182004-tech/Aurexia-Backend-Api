@@ -84,21 +84,29 @@ namespace Fashion.Api
             // 🔥 DATABASE (RENDER READY)
             // =========================
 
-            var dbUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+var dbUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
 
-            builder.Services.AddDbContext<AppDbContext>(options =>
-            {
-                if (!string.IsNullOrWhiteSpace(dbUrl))
-                {
-                    options.UseNpgsql(dbUrl + "?sslmode=require");
-                }
-                else
-                {
-                    options.UseNpgsql(
-                        builder.Configuration.GetConnectionString("DefaultConnection")
-                    );
-                }
-            });
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    if (!string.IsNullOrWhiteSpace(dbUrl))
+    {
+        var connString = dbUrl;
+
+        // Fix SSL properly
+        if (!connString.Contains("SSL Mode"))
+        {
+            connString += ";SSL Mode=Require;Trust Server Certificate=true";
+        }
+
+        options.UseNpgsql(connString);
+    }
+    else
+    {
+        options.UseNpgsql(
+            builder.Configuration.GetConnectionString("DefaultConnection")
+        );
+    }
+});
 
             // =========================
             // CONFIG
