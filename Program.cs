@@ -67,22 +67,43 @@ namespace Fashion.Api
 
             builder.Services.AddSwaggerGen();
 
-            // =========================
-            // 🔥 FIREBASE (ENV BASED)
-            // =========================
+// =========================
+// 🔥 FIREBASE (PRODUCTION SAFE)
+// =========================
 
-            var firebaseConfig = Environment.GetEnvironmentVariable("FIREBASE_CONFIG");
+var firebaseJson = Environment.GetEnvironmentVariable("FIREBASE_CONFIG");
 
-            if (!string.IsNullOrWhiteSpace(firebaseConfig))
+if (!string.IsNullOrWhiteSpace(firebaseJson))
+{
+    try
+    {
+        if (FirebaseApp.DefaultInstance == null)
+        {
+            Console.WriteLine("🔥 Initializing Firebase...");
+
+            // Fix escaped newlines (\n → real newline)
+            firebaseJson = firebaseJson.Replace("\\n", "\n");
+
+            var credential = GoogleCredential
+                .FromJson(firebaseJson);
+
+            FirebaseApp.Create(new AppOptions()
             {
-                if (FirebaseApp.DefaultInstance == null)
-                {
-                    FirebaseApp.Create(new AppOptions()
-                    {
-                        Credential = GoogleCredential.FromJson(firebaseConfig)
-                    });
-                }
-            }
+                Credential = credential
+            });
+
+            Console.WriteLine("✅ Firebase initialized");
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("❌ Firebase init error: " + ex.Message);
+    }
+}
+else
+{
+    Console.WriteLine("⚠️ FIREBASE_CONFIG not found");
+}
 
             // =========================
             // 🔥 DATABASE (RENDER READY)
