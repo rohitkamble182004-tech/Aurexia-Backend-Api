@@ -197,10 +197,27 @@ builder.Services.AddDbContext<AppDbContext>(options =>
             // =========================
 
             using (var scope = app.Services.CreateScope())
-            {
-                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                db.Database.Migrate();
-            }
+{
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
+    Console.WriteLine("🔥 CHECKING COLUMN ShowInNav...");
+
+    try
+    {
+        db.Database.ExecuteSqlRaw(@"
+            ALTER TABLE ""Drops""
+            ADD COLUMN IF NOT EXISTS ""ShowInNav"" boolean NOT NULL DEFAULT false;
+        ");
+
+        Console.WriteLine("✅ Column ensured");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("❌ Error adding column: " + ex.Message);
+    }
+
+    db.Database.Migrate();
+}
 
             // =========================
             // MIDDLEWARE
