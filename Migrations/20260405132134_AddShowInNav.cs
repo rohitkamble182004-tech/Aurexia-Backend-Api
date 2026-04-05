@@ -9,14 +9,22 @@ namespace Fashion.Api.Migrations
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
+{
+    migrationBuilder.AddColumn<bool>(
+        name: "ShowInNav",
+        table: "Drops", // ⚠️ check your actual table name
+        type: "boolean",
+        nullable: false,
+        defaultValue: false
+    );
+}
 
-        }
-
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-
-        }
+protected override void Down(MigrationBuilder migrationBuilder)
+{
+    migrationBuilder.DropColumn(
+        name: "ShowInNav",
+        table: "Drops"
+    );
+}
     }
 }
