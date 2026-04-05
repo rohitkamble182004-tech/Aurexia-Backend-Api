@@ -224,7 +224,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
             app.UseHttpsRedirection();
 
             app.UseCors("Frontend");
-            app.UseCors("AllowAll");
+            // app.UseCors("AllowAll");
 
             app.UseAuthentication();
             app.UseAuthorization();
