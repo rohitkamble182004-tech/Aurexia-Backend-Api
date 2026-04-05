@@ -1,0 +1,182 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\dtos\\products\\productvariantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:dtos\\products\\productvariantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\dtos\\products\\productresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:dtos\\products\\productresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\infrastructure\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:infrastructure\\services\\productservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\dtos\\products\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:dtos\\products\\productcreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\infrastructure\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:infrastructure\\services\\orderservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\dtos\\admin\\adminproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:dtos\\admin\\adminproductdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|c:\\users\\hp\\source\\repos\\fashion.api\\core\\interfaces\\irazorpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F560EA1-AD01-7734-B986-3F115015FB85}|Fashion.Api.csproj|solutionrelative:core\\interfaces\\irazorpayservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Dockerfile",
+              "RelativeDocumentMoniker": "Dockerfile",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Dockerfile",
+              "RelativeToolTip": "Dockerfile",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-04-05T11:00:42.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductVariantDto.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Products\\ProductVariantDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Products\\ProductVariantDto.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Products\\ProductVariantDto.cs",
+              "RelativeToolTip": "DTOs\\Products\\ProductVariantDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T07:24:25.942Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductResponseDto.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Products\\ProductResponseDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Products\\ProductResponseDto.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Products\\ProductResponseDto.cs",
+              "RelativeToolTip": "DTOs\\Products\\ProductResponseDto.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAwAsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T07:08:59.671Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductsController.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T07:08:00.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ProductService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Infrastructure\\Services\\ProductService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\ProductService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Infrastructure\\Services\\ProductService.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\ProductService.cs",
+              "ViewState": "AgIAAI0AAAAAAAAAAAAqwKYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T07:06:52.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProductCreateDto.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Products\\ProductCreateDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Products\\ProductCreateDto.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Products\\ProductCreateDto.cs",
+              "RelativeToolTip": "DTOs\\Products\\ProductCreateDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T12:03:20.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AdminProductDto.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Admin\\AdminProductDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Admin\\AdminProductDto.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\DTOs\\Admin\\AdminProductDto.cs",
+              "RelativeToolTip": "DTOs\\Admin\\AdminProductDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-10T11:21:22.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "OrderService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Infrastructure\\Services\\OrderService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\OrderService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Infrastructure\\Services\\OrderService.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\OrderService.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T07:24:35.856Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IRazorpayService.cs",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Core\\Interfaces\\IRazorpayService.cs",
+              "RelativeDocumentMoniker": "Core\\Interfaces\\IRazorpayService.cs",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\Core\\Interfaces\\IRazorpayService.cs",
+              "RelativeToolTip": "Core\\Interfaces\\IRazorpayService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-21T09:39:55.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\hp\\source\\repos\\Fashion.Api\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-21T09:27:44.809Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
