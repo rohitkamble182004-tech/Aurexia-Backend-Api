@@ -47,15 +47,19 @@ namespace Fashion.Api
             // =========================
 
             builder.Services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll", policy =>
-                {
-                    policy
-                        .AllowAnyOrigin()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
-                });
-            });
+{
+    options.AddPolicy("Frontend", policy =>
+    {
+        policy
+            .WithOrigins(
+                "https://aurexia-henna.vercel.app",   // your frontend
+                "http://localhost:3000"              // local dev
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            .AllowCredentials();
+    });
+});
 
             // =========================
             // SWAGGER
@@ -219,6 +223,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
             app.UseHttpsRedirection();
 
+            app.UseCors("Frontend");
             app.UseCors("AllowAll");
 
             app.UseAuthentication();
