@@ -12,7 +12,7 @@ using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-
+using Npgsql;
 using System.Security.Claims;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -90,13 +90,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     if (!string.IsNullOrWhiteSpace(dbUrl))
     {
-        var connString = dbUrl;
+        var uri = new Uri(dbUrl);
+        var userInfo = uri.UserInfo.Split(':');
 
-        // Fix SSL properly
-        if (!connString.Contains("SSL Mode"))
+        var connString = new NpgsqlConnectionStringBuilder
         {
-            connString += ";SSL Mode=Require;Trust Server Certificate=true";
-        }
+            Host = uri.Host,
+            Port = uri.Port,
+            Username = userInfo[0],
+            Password = userInfo[1],
+            Database = uri.AbsolutePath.TrimStart('/'),
+            SslMode = SslMode.Require,
+            TrustServerCertificate = true
+        }.ToString();
 
         options.UseNpgsql(connString);
     }
