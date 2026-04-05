@@ -8,15 +8,23 @@ namespace Fashion.Api.Migrations
     public partial class AddShowInNavFix : Migration
     {
         /// <inheritdoc />
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
+protected override void Up(MigrationBuilder migrationBuilder)
+{
+    migrationBuilder.AddColumn<bool>(
+        name: "ShowInNav",
+        table: "Drops",
+        type: "boolean",
+        nullable: false,
+        defaultValue: false
+    );
+}
 
-        }
-
-        /// <inheritdoc />
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
-
-        }
+protected override void Down(MigrationBuilder migrationBuilder)
+{
+    migrationBuilder.DropColumn(
+        name: "ShowInNav",
+        table: "Drops"
+    );
+}
     }
 }
