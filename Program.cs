@@ -4,7 +4,6 @@ using Fashion.Api.Infrastructure.Configurations;
 using Fashion.Api.Infrastructure.Data;
 using Fashion.Api.Infrastructure.Services;
 using Fashion.Api.Middlewares;
-using Fashion.Api.Services;
 using FirebaseAdmin;
 using Google.Apis.Auth.OAuth2;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -21,21 +20,28 @@ namespace Fashion.Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
             builder.Services.AddOutputCache();
 
             // =========================
-            // SERVICES
+            // CONTROLLERS
             // =========================
 
             builder.Services
-.AddControllers()
-.AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.Converters
-        .Add(new JsonStringEnumConverter());
-});
+                .AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters
+                        .Add(new JsonStringEnumConverter());
+                });
 
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddHttpClient();
+
+            // =========================
             // CORS
+            // =========================
+
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("NextJs", policy =>
@@ -44,16 +50,13 @@ namespace Fashion.Api
                         .WithOrigins("http://localhost:3000")
                         .AllowAnyHeader()
                         .AllowAnyMethod();
-                        //.AllowCredentials();
                 });
             });
 
-            // Controllers
-            builder.Services.AddControllers();
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddHttpClient();
+            // =========================
+            // SWAGGER
+            // =========================
 
-            // Swagger
             builder.Services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new()
@@ -91,10 +94,10 @@ namespace Fashion.Api
             });
 
             // =========================
-            // 🔥 FIREBASE ADMIN INIT (FIXED)
+            // 🔥 FIREBASE (SAFE)
             // =========================
 
-            if (!builder.Environment.IsEnvironment("Migration"))
+            if (builder.Environment.IsDevelopment())
             {
                 if (FirebaseApp.DefaultInstance == null)
                 {
@@ -103,32 +106,38 @@ namespace Fashion.Api
                         "firebase-service-account.json"
                     );
 
-                    if (!File.Exists(firebasePath))
+                    if (File.Exists(firebasePath))
                     {
-                        throw new FileNotFoundException(
-                            $"Firebase service account file not found at: {firebasePath}"
-                        );
+                        FirebaseApp.Create(new AppOptions()
+                        {
+                            Credential = GoogleCredential.FromFile(firebasePath)
+                        });
                     }
-
-                    FirebaseApp.Create(new AppOptions()
-                    {
-                        Credential = GoogleCredential.FromFile(firebasePath)
-                    });
                 }
             }
 
             // =========================
-            // DATABASE
+            // 🔥 DATABASE (RENDER READY)
             // =========================
+
+            var dbUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
 
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseNpgsql(
-                    builder.Configuration.GetConnectionString("DefaultConnection")
-                )
-            );
+            {
+                if (!string.IsNullOrEmpty(dbUrl))
+                {
+                    options.UseNpgsql(dbUrl + "?sslmode=require");
+                }
+                else
+                {
+                    options.UseNpgsql(
+                        builder.Configuration.GetConnectionString("DefaultConnection")
+                    );
+                }
+            });
 
             // =========================
-            // CONFIG BINDINGS
+            // CONFIG
             // =========================
 
             builder.Services.Configure<JwtSettings>(
@@ -138,7 +147,8 @@ namespace Fashion.Api
                 builder.Configuration.GetSection("Stripe")
             );
             builder.Services.Configure<RazorpaySettings>(
-                builder.Configuration.GetSection("Razorpay"));
+                builder.Configuration.GetSection("Razorpay")
+            );
             builder.Services.Configure<CloudinarySettings>(
                 builder.Configuration.GetSection("Cloudinary")
             );
